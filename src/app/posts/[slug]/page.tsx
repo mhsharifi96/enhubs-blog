@@ -28,10 +28,17 @@ export default async function PostPage({ params }: PageProps) {
     notFound();
   }
 
-  const category = post.category
-    ? await getCategoryBySlug(post.category).catch(() => null)
+  const categorySlug =
+    typeof post.category === "string" ? post.category : post.category?.slug ?? null;
+  const categoryFallbackName =
+    typeof post.category === "string" ? post.category : post.category?.name ?? null;
+  const category = categorySlug
+    ? await getCategoryBySlug(categorySlug).catch(() => null)
     : null;
   const contentHtml = markdownToHtml(post.content ?? post.excerpt ?? "");
+  const tags = (post.tags ?? []).map((tag) =>
+    typeof tag === "string" ? { slug: tag, name: tag } : tag
+  );
 
   return (
     <>
@@ -39,11 +46,14 @@ export default async function PostPage({ params }: PageProps) {
       <article className="rounded-2xl border border-slate-200 bg-surface p-6 shadow-card">
         <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500">
           <span>{formatDate(post.created_at)}</span>
-          {category ? (
+          {categorySlug ? (
             <>
               <span>•</span>
-              <Link className="text-primary hover:underline" href={`/categories/${category.slug}`}>
-                {category.name}
+              <Link
+                className="text-primary hover:underline"
+                href={`/categories/${category?.slug ?? categorySlug}`}
+              >
+                {category?.name ?? categoryFallbackName ?? categorySlug}
               </Link>
             </>
           ) : null}
@@ -53,13 +63,13 @@ export default async function PostPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
         <div className="mt-6 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
+          {tags.map((tag) => (
             <Link
-              key={tag}
+              key={tag.slug}
               className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary transition hover:bg-primary/20"
-              href={`/tags/${tag}`}
+              href={`/tags/${tag.slug}`}
             >
-              #{tag}
+              #{tag.name}
             </Link>
           ))}
         </div>

@@ -31,13 +31,23 @@ export type Tag = {
   updated_at: string;
 };
 
+export type CategoryRef = {
+  name: string;
+  slug: string;
+};
+
+export type TagRef = {
+  name: string;
+  slug: string;
+};
+
 export type PostSummary = {
   id: number;
   title: string;
   slug: string;
-  excerpt: string;
-  category: string;
-  tags: string[];
+  excerpt?: string;
+  category: CategoryRef | string | null;
+  tags: Array<TagRef | string>;
   is_published: boolean;
   meta_title: string;
   meta_description: string;
@@ -134,17 +144,11 @@ async function fetchPosts(options: { page?: number; category?: string; tag?: str
   };
 
   if (category) {
-    searchParams.category = category;
     searchParams.category_slug = category;
-    searchParams["category__slug"] = category;
   }
 
   if (tag) {
-    searchParams.tag = tag;
-    searchParams.tags = tag;
-    searchParams.tag_slug = tag;
-    searchParams["tag__slug"] = tag;
-    searchParams["tags__slug"] = tag;
+    searchParams.tags_slug = tag;
   }
 
   const data = await fetchFromApi<ApiListResponse<PostSummary>>("posts/", {

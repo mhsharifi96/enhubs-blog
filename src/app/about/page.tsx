@@ -12,7 +12,7 @@ export default function AboutPage() {
     <>
       <PageHero
         title="درباره LangAgent "
-        description="LangAgent دسیار آموزش زبان"
+        description="LangAgent دستیار آموزش زبان"
       />
       <article className="space-y-4 rounded-2xl border border-slate-200 bg-surface p-6 text-slate-600 shadow-card">
         <p className="leading-8">
