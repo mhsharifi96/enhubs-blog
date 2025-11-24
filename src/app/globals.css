@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #1c1c1c;
+  background-color: #f6f3ef;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    background-color: #f6f3ef;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-slate-900 flex flex-col font-vazir;
+  }
+
+  a {
+    @apply no-underline;
+  }
+}
+
+.markdown-body {
+  @apply space-y-4 text-slate-700 leading-8;
+}
+
+.markdown-body h1 {
+  @apply text-3xl font-bold text-slate-900;
+}
+
+.markdown-body h2 {
+  @apply text-2xl font-semibold text-slate-900;
+}
+
+.markdown-body h3 {
+  @apply text-xl font-semibold text-slate-900;
+}
+
+.markdown-body p {
+  @apply text-base;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-inline-start: 1.5rem;
+  @apply space-y-2;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+.markdown-body blockquote {
+  border-inline-start: 3px solid rgba(14, 116, 144, 0.3);
+  padding-inline-start: 1rem;
+  @apply italic text-slate-500;
+}
+
+.markdown-body code {
+  @apply rounded bg-slate-100 px-1 py-0.5 text-sm font-medium text-slate-800;
+}
+
+.markdown-body pre {
+  @apply overflow-x-auto rounded-2xl bg-slate-900 p-4 text-sm text-slate-100;
+}
+
+.markdown-body pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+
+.markdown-body a {
+  @apply text-primary underline decoration-dotted underline-offset-4;
+}
+
+.markdown-body img {
+  @apply max-w-full rounded-xl border border-slate-200;
+}

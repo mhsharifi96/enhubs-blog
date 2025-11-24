@@ -1,0 +1,13 @@
+import localFont from "next/font/local";
+
+export const vazir = localFont({
+  src: [
+    { path: "../../assest/font/Vazir-Thin.woff2", weight: "100", style: "normal" },
+    { path: "../../assest/font/Vazir-Light.woff2", weight: "300", style: "normal" },
+    { path: "../../assest/font/Vazir.woff2", weight: "400", style: "normal" },
+    { path: "../../assest/font/Vazir-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../assest/font/Vazir-Bold.woff2", weight: "700", style: "normal" }
+  ],
+  variable: "--font-vazir",
+  display: "swap"
+});
