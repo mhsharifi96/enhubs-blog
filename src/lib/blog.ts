@@ -67,7 +67,7 @@ function buildUrl(path: string) {
   return `${normalizedBaseUrl}/${trimmedPath}`;
 }
 
-const DEFAULT_REVALIDATE_SECONDS = Number(process.env.API_REVALIDATE_SECONDS ?? "60");
+const DEFAULT_REVALIDATE_SECONDS = Number(process.env.API_REVALIDATE_SECONDS ?? "0");
 
 async function fetchFromApi<T>(path: string, options: FetchOptions = {}) {
   const { searchParams, cache } = options;
