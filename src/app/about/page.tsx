@@ -11,12 +11,12 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        title="درباره EN Hub"
-        description="یک بلاگ مینیمال برای یادگیری زبان "
+        title="درباره LangAgent "
+        description="LangAgent دسیار آموزش زبان"
       />
       <article className="space-y-4 rounded-2xl border border-slate-200 bg-surface p-6 text-slate-600 shadow-card">
         <p className="leading-8">
-          EN Hub فضایی برای یادگیری، اشتراک تجربه و رشد فردی در زمینه توسعه وب و
+          LangAgent فضایی برای یادگیری، اشتراک تجربه و رشد فردی در زمینه توسعه وب و
           یادگیری زبان است. ما تلاش می‌کنیم محتوا ساده، کاربردی و قابل فهم باشد
           تا هر سطحی از یادگیری بتواند از آن استفاده کند.
         </p>

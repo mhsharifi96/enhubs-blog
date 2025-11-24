@@ -15,7 +15,7 @@ export default async function HomePage({
   return (
     <>
       <PageHero
-        title="وبلاگ EN Hub"
+        title="وبلاگ LangAgent"
         description="یادداشت‌ها و آموزش‌های کوتاه درباره توسعه وب و مدیریت محتوا"
       />
       <PostList posts={items} />

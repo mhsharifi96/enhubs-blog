@@ -1,4 +1,4 @@
-# EN Hub Blog
+# LangAgent Blog
 
 A minimal, RTL-friendly blog built with Next.js 14 app router and Tailwind CSS. The UI consumes a simple Django REST API for categories, tags, and posts, rendering everything server-side (SSR) with Markdown support for post content.
 
