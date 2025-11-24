@@ -127,13 +127,28 @@ export async function getTagBySlug(slug: string) {
 async function fetchPosts(options: { page?: number; category?: string; tag?: string } = {}) {
   const { page = 1, category, tag } = options;
   const safePage = Math.max(page, 1);
+
+  const searchParams: Record<string, string> = {
+    page: String(safePage),
+    page_size: String(PAGE_SIZE)
+  };
+
+  if (category) {
+    searchParams.category = category;
+    searchParams.category_slug = category;
+    searchParams["category__slug"] = category;
+  }
+
+  if (tag) {
+    searchParams.tag = tag;
+    searchParams.tags = tag;
+    searchParams.tag_slug = tag;
+    searchParams["tag__slug"] = tag;
+    searchParams["tags__slug"] = tag;
+  }
+
   const data = await fetchFromApi<ApiListResponse<PostSummary>>("posts/", {
-    searchParams: {
-      page: String(safePage),
-      page_size: String(PAGE_SIZE),
-      category,
-      tags: tag
-    }
+    searchParams
   });
 
   const totalPages = Math.max(1, Math.ceil(data.count / PAGE_SIZE));
