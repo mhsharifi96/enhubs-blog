@@ -9,5 +9,5 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - API_BASE_URL=http://host.docker.internal:8000/api/blog
+      - API_BASE_URL=https://api.langagent.ir/api/blog
     restart: unless-stopped

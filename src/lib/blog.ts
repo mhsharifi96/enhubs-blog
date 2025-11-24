@@ -1,4 +1,4 @@
-const DEFAULT_BASE_URL = "http://127.0.0.1:8000/api/blog";
+const DEFAULT_BASE_URL = "https://api.langagent.ir/api/blog";
 const rawBaseUrl =
   process.env.API_BASE_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL ?? DEFAULT_BASE_URL;
 const normalizedBaseUrl = rawBaseUrl.replace(/\/$/, "");
