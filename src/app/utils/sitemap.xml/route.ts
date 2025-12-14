@@ -1,4 +1,4 @@
-const REMOTE_SITEMAP_URL = 'https://langagent.ir/utils/blog/sitemap.xml';
+const REMOTE_SITEMAP_URL = 'https://api.langagent.ir/api/blog/sitemap/';
 
 export const revalidate = 60 * 60; // revalidate proxy cache hourly
 
