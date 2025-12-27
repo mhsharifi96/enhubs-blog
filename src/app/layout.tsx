@@ -9,10 +9,10 @@ import { vazir } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | LangAgent",
+    template: "%s |Blog LangAgent",
     default: "LangAgent"
   },
-  description: "A simple RTL-friendly blog built with Next.js"
+  description: "LangAgent Blog - Articles and tutorials about Learning English language with AI agents.",
 };
 
 export const dynamic = "force-dynamic";
